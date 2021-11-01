@@ -1,0 +1,20 @@
+{
+    "ge": {
+      "events": "ღონისძიებები",
+      "athletes" : "ათლეტები",
+      "news" : "სიახლე",
+      "about" : "ჩვენს შესახებ",
+      "media" : "ფოტო/ვიდეო",
+      "live" : "ლაივსტრიმი",
+      "shop" : "მაღაზია"
+    },
+    "en": {
+        "events": "EVENTS",
+        "athletes" : "ATHLETES",
+        "news" : "NEWS",
+        "about" : "ABOUT US",
+        "media" : "PHOTO/VIDEO",
+        "live" : "LIVESTREAM",
+        "shop" : "SHOP"
+    }
+  }
