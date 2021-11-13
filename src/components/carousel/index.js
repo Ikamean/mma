@@ -15,7 +15,11 @@ const GmmapCarousel = ({ data, size = null }) => {
       {data &&
         data.map((el) => (
           <div>
-            <CarouselImg src={el.url} alt="carousel data" size={size} />
+            <CarouselImg
+              src={`${process.env.REACT_APP_STRAPI_BASE_URL}${el.url}`}
+              alt="carousel data"
+              size={size}
+            />
           </div>
         ))}
     </Carousel>

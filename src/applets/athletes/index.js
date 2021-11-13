@@ -53,7 +53,10 @@ const Athlete = ({ data }) => {
 
         <ImageContainer>
           <Container>
-            <img src={thumbnailUrl} alt={`${athleteName} ${athleteLastName}`} />
+            <img
+              src={`${process.env.REACT_APP_STRAPI_BASE_URL}${thumbnailUrl}`}
+              alt={`${athleteName} ${athleteLastName}`}
+            />
           </Container>
           <NickName>{athleteNickName}</NickName>
           <WLDcontainer>

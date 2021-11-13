@@ -68,7 +68,10 @@ const Videos = ({ data }) => {
       {data &&
         data.map((el) => (
           <video width="320" height="240" controls>
-            <source src={el.url} type="video/mp4" />
+            <source
+              src={process.env.REACT_APP_STRAPI_BASE_URLel.url}
+              type="video/mp4"
+            />
           </video>
         ))}
     </div>

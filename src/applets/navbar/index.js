@@ -60,35 +60,35 @@ const NavBar = () => {
           </svg>
         )}
       </BurgerIcon>
-      {firstNavbarItems.map((el) => (
-        <LinkContainer>
+      <LinkContainer>
+        {firstNavbarItems.map((el) => (
           <LinkButton
             active={activePage === el.location && true}
             onClick={() => handleNavigation(el.location)}
           >
             {el.name}
           </LinkButton>
-        </LinkContainer>
-      ))}
-
-      <Logo
-        active={activePage === '/' && true}
-        onClick={() => handleNavigation('/')}
-        burgerMenu={burgerMenu}
-      >
-        G<ColoredLogo>MMA</ColoredLogo>P
-      </Logo>
-
-      {secondNavbarItems.map((el) => (
-        <LinkContainer>
+        ))}
+      </LinkContainer>
+      <LinkContainer>
+        <Logo
+          active={activePage === '/' && true}
+          onClick={() => handleNavigation('/')}
+          burgerMenu={burgerMenu}
+        >
+          G<ColoredLogo>MMA</ColoredLogo>P
+        </Logo>
+      </LinkContainer>
+      <LinkContainer>
+        {secondNavbarItems.map((el) => (
           <LinkButton
             active={activePage === el.location && true}
             onClick={() => handleNavigation(el.location)}
           >
             {el.name}
           </LinkButton>
-        </LinkContainer>
-      ))}
+        ))}
+      </LinkContainer>
     </NavbarContainer>
   );
 };

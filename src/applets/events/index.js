@@ -7,40 +7,41 @@ import { convertTime } from 'utils';
 
 import styled from 'styled-components';
 
-const Event = ({ data }) => {
+const Event = ({ data = null }) => {
   return (
     <EventContainer>
-      <EventCount> {data.length} EVENTS </EventCount>
-      {data.map((el) => {
-        const { athletes, name, created_at, date, time, location } = el;
+      {data && <EventCount> {data.length} EVENTS </EventCount>}
+      {data &&
+        data.map((el) => {
+          const { athletes, name, created_at, date, time, location } = el;
 
-        return (
-          <EventBody key={created_at}>
-            <EventDetails>
-              <EventName>{name}</EventName>
-              <Location>{location} </Location>
-              <Time>
-                {date} / {convertTime(time)}
-              </Time>
-            </EventDetails>
+          return (
+            <EventBody key={created_at}>
+              <EventDetails>
+                <EventName>{name}</EventName>
+                <Location>{location} </Location>
+                <Time>
+                  {date} / {convertTime(time)}
+                </Time>
+              </EventDetails>
 
-            <AthleteImagesContainer>
-              {athletes.map((athlete) => {
-                const athleteUrl = athlete.media[0].formats.thumbnail.url;
-                return (
-                  <Container>
-                    <img
-                      src={athleteUrl}
-                      key={athleteUrl}
-                      alt={`${name}`}
-                    ></img>
-                  </Container>
-                );
-              })}
-            </AthleteImagesContainer>
-          </EventBody>
-        );
-      })}
+              <AthleteImagesContainer>
+                {athletes.map((athlete) => {
+                  const athleteUrl = athlete.media[0].formats.thumbnail.url;
+                  return (
+                    <Container>
+                      <img
+                        src={`${process.env.REACT_APP_STRAPI_BASE_URL}${athleteUrl}`}
+                        key={athleteUrl}
+                        alt={`${name}`}
+                      ></img>
+                    </Container>
+                  );
+                })}
+              </AthleteImagesContainer>
+            </EventBody>
+          );
+        })}
     </EventContainer>
   );
 };

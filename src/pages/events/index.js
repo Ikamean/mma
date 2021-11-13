@@ -13,7 +13,7 @@ import styled from 'styled-components';
 import Spinner from 'components/spinner';
 
 const Events = () => {
-  const [eventsData, setEventsData] = useState(null);
+  const [eventsData, setEventsData] = useState([]);
   const [eventType, setEventType] = useState('upcoming');
 
   useEffect(() => {
@@ -24,7 +24,7 @@ const Events = () => {
     getAllEvents();
   }, []);
 
-  if (!eventsData) return <Spinner />;
+  if (eventsData.length === 0) return <Spinner />;
 
   return (
     <PageBody>
