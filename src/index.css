@@ -148,4 +148,5 @@ body {
 body {
   overflow-y: none !important;
   height: 100vh;
+  background-color: black;
 }

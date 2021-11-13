@@ -5,6 +5,7 @@ import { Switch, Route } from 'react-router-dom';
 import Home from 'pages/home';
 import Events from 'pages/events';
 import Athletes from 'pages/athletes';
+import Athlete from 'pages/athlete';
 import News from 'pages/news';
 import Gallery from 'pages/gallery';
 import About from 'pages/about';
@@ -30,6 +31,10 @@ const App = () => {
 
         <Route exact path="/athletes">
           <Athletes />
+        </Route>
+
+        <Route exact path="/athletes/:id">
+          <Athlete />
         </Route>
 
         <Route exact path="/news">

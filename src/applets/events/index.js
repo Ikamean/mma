@@ -2,7 +2,7 @@ import React from 'react';
 
 import logo from 'media/logo.png';
 
-import { Container, ShadowContainer } from 'components';
+import { Container, ShadowContainer } from 'components/styled/';
 import { convertTime } from 'utils';
 
 import styled from 'styled-components';
@@ -49,19 +49,26 @@ export default Event;
 
 const EventContainer = styled(Container)`
   flex-direction: column;
-  gap: ${(props) => props.theme.size.xxlg};
+  margin: ${(props) => props.theme.margin.md} 0;
+
+  color: ${(props) => props.theme.color.white};
 `;
 
 const EventCount = styled(Container)`
   font-weight: 900;
   font-size: ${(props) => props.theme.font.size.md};
+  margin-bottom: ${(props) => props.theme.size.lg};
 `;
 
 const EventBody = styled(ShadowContainer)`
   flex-direction: column;
   width: 100%;
-  gap: ${(props) => props.theme.size.sm};
-  padding: ${(props) => props.theme.padding.md} 0;
+  padding: ${(props) => props.theme.padding.lg} 0;
+  margin: ${(props) => props.theme.margin.md} 0;
+
+  color: ${(props) => props.theme.color.black};
+  background-color: ${(props) => props.theme.color.white};
+  border-radius: 2px;
 `;
 
 const EventDetails = styled(Container)`

@@ -1,10 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { events } from 'api';
+import request from 'api';
 
-import Event from 'applets/event';
-import { PageBody, Container, Button, PageHeader } from 'components';
+import Event from 'applets/events';
+import {
+  PageBody,
+  Container,
+  SelectedButton,
+  PageHeader,
+} from 'components/styled/';
 
 import styled from 'styled-components';
+import Spinner from 'components/spinner';
 
 const Events = () => {
   const [eventsData, setEventsData] = useState(null);
@@ -12,31 +18,31 @@ const Events = () => {
 
   useEffect(() => {
     const getAllEvents = async () => {
-      const data = await events();
+      const data = await request({ url: 'events' });
       setEventsData(data);
     };
     getAllEvents();
   }, []);
 
-  if (!eventsData) return <div>loading...</div>;
+  if (!eventsData) return <Spinner />;
 
   return (
     <PageBody>
       <PageHeader>EVENTS</PageHeader>
 
       <ButtonContainer>
-        <HistoryButton
+        <SelectedButton
           active={eventType === 'upcoming'}
           onClick={() => setEventType('upcoming')}
         >
           UPCOMING
-        </HistoryButton>
-        <HistoryButton
+        </SelectedButton>
+        <SelectedButton
           active={eventType === 'past'}
           onClick={() => setEventType('past')}
         >
           PAST
-        </HistoryButton>
+        </SelectedButton>
       </ButtonContainer>
 
       <Event
@@ -52,12 +58,4 @@ export default Events;
 const ButtonContainer = styled(Container)`
   gap: ${(props) => props.theme.size.xlg};
   padding: ${(props) => props.theme.size.xlg};
-`;
-
-const HistoryButton = styled(Button)`
-  font-weight: 900;
-  font-size: ${(props) => props.theme.size.lg};
-  width: ${(props) => props.theme.size.xxxlg};
-  color: ${(props) =>
-    props.active ? props.theme.color.black : props.theme.color.grey};
 `;

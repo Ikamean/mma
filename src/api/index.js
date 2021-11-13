@@ -1,5 +1,5 @@
 import { call } from 'api/utils';
 
-export const events = async () => await call({ url: '/events' });
+const request = async ({ url, id }) => await call({ url, id });
 
-export const athletes = async () => await call({ url: '/athletes' });
+export default request;

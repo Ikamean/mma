@@ -3,9 +3,18 @@ import { convertKgToLb, converToUpperCase } from 'utils';
 
 import styled from 'styled-components';
 
-import { Container, ContainerHeader, ShadowContainer } from 'components';
+import {
+  Container,
+  ContainerHeader,
+  ShadowContainer,
+} from 'components/styled/';
+
+import { useHistory } from 'react-router-dom';
+
+import Carousel from 'components/carousel';
 
 const Athlete = ({ data }) => {
+  const history = useHistory();
   const {
     name,
     lastName,
@@ -29,10 +38,10 @@ const Athlete = ({ data }) => {
   const athleteCategory = converToUpperCase({ value: category });
 
   return (
-    <AthleteContainer>
-      <ContainerHeader>
+    <AthleteContainer onClick={() => history.push(`/athletes/${data.id}`)}>
+      <AthleteName>
         {athleteName} {athleteLastName}
-      </ContainerHeader>
+      </AthleteName>
       <ContainerBody>
         <InfoContainer>
           <JustifyLeftContainer>{athleteCategory}</JustifyLeftContainer>
@@ -61,9 +70,22 @@ export default Athlete;
 const AthleteContainer = styled(ShadowContainer)`
   flex-direction: column;
   padding: ${(props) => props.theme.padding.md};
-  margin: ${(props) => props.theme.margin.md} 0;
+  margin: ${(props) => props.theme.margin.lg} 0;
+  color: ${(props) => props.theme.color.black};
+  background-color: ${(props) => props.theme.color.white};
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 1 ease-in;
+
+  &:hover {
+    color: ${(props) => props.theme.color.white};
+    background-color: ${(props) => props.theme.color.black};
+  }
 `;
 
+const AthleteName = styled(ContainerHeader)`
+  color: inherit;
+`;
 const ContainerBody = styled(Container)`
   justify-content: space-evenly;
   width: 100%;

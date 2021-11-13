@@ -1,24 +1,23 @@
 import React, { useState, useEffect } from 'react';
-import { athletes } from 'api';
+import request from 'api';
 
-import Athlete from 'applets/athlete';
-import { PageBody, Container, PageHeader } from 'components';
-import styled from 'styled-components';
+import Athlete from 'applets/athletes';
+import { PageBody, Container, PageHeader } from 'components/styled/';
+
+import Spinner from 'components/spinner';
 
 const Athletes = () => {
   const [athletesData, setAthletesData] = useState(null);
 
   useEffect(() => {
     const getAllAthletes = async () => {
-      const data = await athletes();
+      const data = await request({ url: 'athletes' });
       setAthletesData(data);
     };
     getAllAthletes();
   }, []);
 
-  console.log(athletesData);
-
-  if (!athletesData) return <div>Loading...</div>;
+  if (!athletesData) return <Spinner />;
 
   return (
     <PageBody>

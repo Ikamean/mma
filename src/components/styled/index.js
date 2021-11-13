@@ -3,12 +3,13 @@ import styled from 'styled-components';
 export const PageBody = styled.div`
   overflow-y: auto;
   min-height: calc(100vh - 155px);
-  padding-top: ${(props) => props.theme.padding.lg};
-  padding-bottom: ${(props) => props.theme.padding.msm};
+  padding-top: ${(props) => props.theme.padding.xlg};
+  padding-bottom: ${(props) => props.theme.padding.slg};
   margin: 0px !important;
+  color: ${(props) => props.theme.color.white};
 `;
 export const Header = styled.h4`
-  color: ${(props) => props.theme.color.black};
+  color: ${(props) => props.theme.color.white};
   font-weight: ${(props) => props.theme.font.weight.bold};
   letter-spacing: ${(props) => props.theme.size.xsm};
   padding: ${(props) => props.theme.padding.md};
@@ -31,9 +32,7 @@ export const ContainerHeader = styled(Header)`
   padding: ${(props) => props.theme.padding.md};
 `;
 
-export const ShadowContainer = styled(Container)`
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-`;
+export const ShadowContainer = styled(Container)``;
 
 export const Button = styled.button`
   outline: none;
@@ -46,12 +45,29 @@ export const Button = styled.button`
   }
 `;
 
+export const SelectedButton = styled(Button)`
+  font-weight: 900;
+  font-size: ${(props) => props.theme.size.md};
+  padding: ${(props) => props.theme.padding.sm};
+  width: ${(props) => props.theme.size.xxxlg};
+  color: ${(props) =>
+    props.active ? props.theme.color.white : props.theme.color.grey};
+
+  outline: ${(props) => props.active && `1px dotted  ${props.theme.color.red}`};
+`;
+
 export const LogoContainer = styled(Container)`
-  color: ${(props) => props.theme.color.black};
+  color: ${(props) => props.theme.color.white};
   letter-spacing: ${(props) => props.theme.size.sm};
   font-weight: ${(props) => props.theme.font.weight.bold};
 `;
 
 export const ColoredLogo = styled(LogoContainer)`
   color: ${(props) => props.theme.color.red};
+`;
+
+export const Divider = styled(Container)`
+  background-color: ${(props) => props.theme.color.black};
+  height: ${(props) => props.theme.size.xxlg};
+  width: 100%;
 `;
