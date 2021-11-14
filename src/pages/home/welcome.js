@@ -25,7 +25,9 @@ const WelcomeContainer = styled(Container)`
   }
 `;
 const CarouselContainer = styled(Container)`
-  padding: ${(props) => props.theme.padding.xlg};
+  padding-top: ${(props) => props.theme.padding.xlg};
+  padding-bottom: ${(props) => props.theme.padding.xlg};
+
   position: relative;
 `;
 
@@ -36,25 +38,31 @@ const WelcomeHeader = styled(Container)`
   flex-direction: column;
   justify-content: left;
   align-items: start;
+
+  font-weight: ${(props) => props.theme.font.weight.bold};
+
   &:after {
     content: '__________';
     color: ${(props) => props.theme.color.red};
     padding-top: ${(props) => props.theme.padding.md};
     font-size: ${(props) => props.theme.font.size.md};
   }
+
+  @media (max-width: 450px) {
+    top: 100px;
+    left: 20px;
+  }
 `;
 
 const WelcomeText = styled(Container)`
   width: 150px;
   font-size: ${(props) => props.theme.font.size.msm};
-  font-weight: ${(props) => props.theme.font.weight.bold};
   line-height: ${(props) => props.theme.font.size.smd};
   letter-spacing: 1px;
 
   @media (min-width: 950px) {
     width: 150px;
     font-size: ${(props) => props.theme.font.size.md};
-
     line-height: ${(props) => props.theme.font.size.smd};
   }
 

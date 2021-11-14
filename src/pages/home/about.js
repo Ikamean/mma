@@ -23,11 +23,8 @@ const About = ({ data }) => {
         </ParagraphHeader>
         <ParagraphDescription>{about}</ParagraphDescription>
         <VideoContainer>
-          <video width="100%" height="240" controls>
-            <source
-              src={`${process.env.REACT_APP_STRAPI_BASE_URL}${introVideo.url}`}
-              type="video/mp4"
-            />
+          <video width="100%" height="340" controls>
+            <source src={introVideo.url} type="video/mp4" />
           </video>
         </VideoContainer>
         <Signature>
@@ -45,7 +42,9 @@ const About = ({ data }) => {
 const AboutContainer = styled(Container)`
   background-color: ${(props) => props.theme.color.black};
   color: ${(props) => props.theme.color.white};
-  padding: ${(props) => props.theme.padding.xlg};
+  padding-top: ${(props) => props.theme.padding.xlg};
+  padding-bottom: ${(props) => props.theme.padding.xlg};
+
   align-items: center;
   justify-content: flex-start;
   gap: ${(props) => props.theme.size.xlg};
@@ -107,18 +106,8 @@ const ParagraphDescription = styled(Paragraph)`
 `;
 
 const VideoContainer = styled(Container)`
-  padding-top: ${(props) => props.theme.padding.xlg};
-  padding-bottom: ${(props) => props.theme.padding.xlg};
-`;
-const SeeMore = styled.span`
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  color: ${(props) => props.theme.color.red};
-  cursor: pointer;
-  &:hover {
-    text-decoration: underline;
-  }
+  margin-top: ${(props) => props.theme.padding.xlg};
+  margin-bottom: ${(props) => props.theme.padding.xlg};
 `;
 
 const Signature = styled(Container)`
@@ -133,17 +122,28 @@ const DirectorDetails = styled(Container)`
 
 const DirectorName = styled.span`
   font-size: ${(props) => props.theme.font.size.smd};
+
+  @media (max-width: 450px) {
+    font-size: ${(props) => props.theme.font.size.md};
+  }
 `;
 const Director = styled.span`
   font-size: ${(props) => props.theme.font.size.msm};
   padding-top: ${(props) => props.theme.padding.sm};
   color: ${(props) => props.theme.color.red};
   font-weight: ${(props) => props.theme.font.weight.bold};
+
+  @media (max-width: 450px) {
+    font-size: ${(props) => props.theme.font.size.sm};
+  }
 `;
 
 const SignatureImg = styled.img`
   height: 90px;
   width: auto;
+  @media (max-width: 450px) {
+    height: 50px;
+  }
 `;
 
 export default About;

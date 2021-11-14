@@ -5,6 +5,9 @@ export const PageBody = styled.div`
   min-height: calc(100vh - 155px);
   padding-top: ${(props) => props.theme.padding.xlg};
   padding-bottom: ${(props) => props.theme.padding.slg};
+  padding-left: ${(props) => props.theme.padding.lg};
+  padding-right: ${(props) => props.theme.padding.lg};
+
   margin: 0px !important;
   color: ${(props) => props.theme.color.white};
 `;

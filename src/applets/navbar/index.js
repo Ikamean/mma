@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-import logo from 'media/whiteLogo.png';
-
-import { useHistory, Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import {
   Container,
@@ -35,7 +33,7 @@ const NavBar = () => {
   ];
   return (
     <NavbarContainer visible={burgerMenu}>
-      {/* <BurgerIcon onClick={() => setBurgerMenu(!burgerMenu)}>
+      <BurgerIcon onClick={() => setBurgerMenu(!burgerMenu)}>
         {burgerMenu ? (
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -59,8 +57,9 @@ const NavBar = () => {
             <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
           </svg>
         )}
-      </BurgerIcon> */}
-      {/* <LinkContainer>
+      </BurgerIcon>
+
+      <LinkContainer>
         {firstNavbarItems.map((el) => (
           <LinkButton
             active={activePage === el.location && true}
@@ -69,17 +68,17 @@ const NavBar = () => {
             {el.name}
           </LinkButton>
         ))}
-      </LinkContainer> */}
-      <LinkContainer>
-        <Logo
-          active={activePage === '/' && true}
-          onClick={() => handleNavigation('/')}
-          // burgerMenu={burgerMenu}
-        >
-          G<ColoredLogo>MMA</ColoredLogo>P
-        </Logo>
       </LinkContainer>
-      {/* <LinkContainer>
+
+      <Logo
+        active={activePage === '/' && true}
+        onClick={() => handleNavigation('/')}
+        burgerMenu={burgerMenu}
+      >
+        G<ColoredLogo>MMA</ColoredLogo>P
+      </Logo>
+
+      <LinkContainer>
         {secondNavbarItems.map((el) => (
           <LinkButton
             active={activePage === el.location && true}
@@ -88,7 +87,7 @@ const NavBar = () => {
             {el.name}
           </LinkButton>
         ))}
-      </LinkContainer> */}
+      </LinkContainer>
     </NavbarContainer>
   );
 };
@@ -97,7 +96,7 @@ export default NavBar;
 
 const NavbarContainer = styled(Container)`
   justify-content: flex-start;
-  align-items: start;
+  align-items: center;
   gap: 1rem;
   background-color: ${(props) => props.theme.color.black};
   color: ${(props) => props.theme.color.white};
@@ -112,7 +111,7 @@ const NavbarContainer = styled(Container)`
   right: 0;
   left: 0;
 
-  /* @media screen and (max-width: 950px) {
+  @media screen and (max-width: 950px) {
     visibility: ${(props) => (props.visible ? 'visible' : 'hidden')};
     flex-direction: column;
     align-items: center;
@@ -125,7 +124,7 @@ const NavbarContainer = styled(Container)`
     bottom: 0;
     background-color: ${(props) => props.theme.color.black};
     padding: ${(props) => props.theme.padding.md};
-  } */
+  }
 `;
 
 const BurgerIcon = styled(Button)`
@@ -144,7 +143,7 @@ const BurgerIcon = styled(Button)`
 
 const LinkContainer = styled(Container)`
   width: ${(props) => props.theme.size.xxxxlg};
-  justify-content: left;
+  justify-content: center;
   align-items: start;
   gap: ${(props) => props.theme.size.md};
   @media screen and (max-width: 950px) {
@@ -161,10 +160,10 @@ const LinkButton = styled(Button)`
   font-weight: ${(props) => props.theme.font.weight.bold};
   color: ${(props) => props.theme.color.white};
 
-  outline: ${(props) =>
+  /* outline: ${(props) =>
     props.active
       ? `1px dotted ${props.theme.color.red}`
-      : props.theme.color.black};
+      : props.theme.color.black}; */
   @media screen and (max-width: 950px) {
     text-align: center;
     align-items: center;
@@ -175,17 +174,23 @@ const LinkButton = styled(Button)`
 const Logo = styled(LogoContainer)`
   cursor: pointer;
   color: ${(props) => props.theme.color.white};
-  /* position: absolute;
-  top: ${(props) => props.theme.size.lg};
-  left: ${(props) => props.theme.size.md}; */
-  text-align: left;
-  align-items: start;
-  justify-content: left;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  width: ${(props) => props.theme.size.xxxxlg};
 
   @media screen and (max-width: 950px) {
-    font-size: ${(props) => props.theme.font.size.lmd};
+    font-size: ${(props) => props.theme.font.size.md};
+    padding: ${(props) => props.theme.padding.sm};
     width: auto;
-    /* visibility: ${(props) => props.buergerMenu && 'visible'}; */
     visibility: visible;
+    position: absolute;
+    top: ${(props) => props.theme.size.sm};
+    left: ${(props) => props.theme.size.sm};
+    border: 1px solid red;
+  }
+
+  @media (max-width: 450px) {
+    font-size: ${(props) => props.theme.font.size.msm};
   }
 `;

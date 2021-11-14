@@ -1,7 +1,5 @@
 import React from 'react';
 
-import logo from 'media/logo.png';
-
 import { Container, ShadowContainer } from 'components/styled/';
 import { convertTime } from 'utils';
 
