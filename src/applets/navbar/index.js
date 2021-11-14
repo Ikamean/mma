@@ -95,7 +95,7 @@ const NavBar = () => {
 export default NavBar;
 
 const NavbarContainer = styled(Container)`
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   gap: 1rem;
   background-color: ${(props) => props.theme.color.black};
