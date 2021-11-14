@@ -1,24 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import {
-  Container,
-  PageBody,
-  LogoContainer,
-  ColoredLogo,
-  ContainerHeader,
-} from 'components/styled';
-
-import { useHistory } from 'react-router-dom';
-
-import Athlete from 'applets/athletes';
-import Event from 'applets/events';
-import GmmapCarousel from 'components/carousel';
+import { Container, LogoContainer, ColoredLogo } from 'components/styled';
 
 import signature from 'media/signature.jpg';
 
-import { athletes, events, galleries, homePage } from 'api';
-
-const About = ({ text, image, history }) => {
+const About = ({ data }) => {
+  const { about, introVideo } = data;
   return (
     <AboutContainer>
       <div>
@@ -34,10 +21,15 @@ const About = ({ text, image, history }) => {
           Fight School has specialized in martial arts since 1986 and has one of
           the most innovative programs in the nation.
         </ParagraphHeader>
-        <ParagraphDescription>
-          {text}
-          <SeeMore onClick={() => history.push('/about')}>See more...</SeeMore>
-        </ParagraphDescription>
+        <ParagraphDescription>{about}</ParagraphDescription>
+        <VideoContainer>
+          <video width="100%" height="240" controls>
+            <source
+              src={`${process.env.REACT_APP_STRAPI_BASE_URL}${introVideo.url}`}
+              type="video/mp4"
+            />
+          </video>
+        </VideoContainer>
         <Signature>
           <DirectorDetails>
             <DirectorName>Aiden Richards</DirectorName>{' '}
@@ -78,6 +70,11 @@ const Header = styled(Container)`
   font-weight: ${(props) => props.theme.font.weight.bold};
   letter-spacing: ${(props) => props.theme.size.xsm};
   font-size: ${(props) => props.theme.font.size.smd};
+
+  @media (max-width: 950px) {
+    font-size: ${(props) => props.theme.font.size.md};
+    letter-spacing: ${(props) => props.theme.size.xsm};
+  }
 `;
 
 const GMMAP = styled(LogoContainer)`
@@ -88,16 +85,31 @@ const GMMAP = styled(LogoContainer)`
 const Paragraph = styled(Container)`
   padding-top: ${(props) => props.theme.size.lg};
   line-height: ${(props) => props.theme.size.lg};
+  @media (max-width: 950px) {
+    line-height: ${(props) => props.theme.font.size.smd};
+  }
 `;
 
-const ParagraphHeader = styled(Paragraph)``;
+const ParagraphHeader = styled(Paragraph)`
+  @media (max-width: 950px) {
+    font-size: ${(props) => props.theme.font.size.lsm};
+  }
+`;
 
 const ParagraphDescription = styled(Paragraph)`
   color: ${(props) => props.theme.color.grey};
   padding-top: ${(props) => props.theme.padding.md};
   position: relative;
+
+  @media (max-width: 950px) {
+    font-size: ${(props) => props.theme.font.size.msm};
+  }
 `;
 
+const VideoContainer = styled(Container)`
+  padding-top: ${(props) => props.theme.padding.xlg};
+  padding-bottom: ${(props) => props.theme.padding.xlg};
+`;
 const SeeMore = styled.span`
   position: absolute;
   right: 0;

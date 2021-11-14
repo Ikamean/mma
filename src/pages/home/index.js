@@ -9,9 +9,10 @@ import request from 'api';
 import Welcome from './welcome';
 import About from './about';
 
+import Spinner from 'components/spinner';
+
 const Home = () => {
   const [homePageData, setHomePageData] = useState([]);
-  const history = useHistory();
 
   useEffect(() => {
     const getHomePageData = async () => {
@@ -20,11 +21,15 @@ const Home = () => {
     };
     getHomePageData();
   }, []);
+
+  if (homePageData.length === 0) return;
+  <Spinner />;
+
   return (
     <PageBody>
       <Welcome data={homePageData} />
 
-      <About text={homePageData.about} history={history} />
+      <About data={homePageData} />
       {/* <Athletes /> */}
     </PageBody>
   );

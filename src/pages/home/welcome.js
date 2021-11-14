@@ -1,55 +1,67 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import {
-  Container,
-  PageBody,
-  LogoContainer,
-  ColoredLogo,
-  ContainerHeader,
-} from 'components/styled';
+import { Container } from 'components/styled';
 
-import { useHistory } from 'react-router-dom';
-
-import Athlete from 'applets/athletes';
-import Event from 'applets/events';
 import GmmapCarousel from 'components/carousel';
-
-import signature from 'media/signature.jpg';
-
-import { athletes, events, galleries, homePage } from 'api';
 
 const Welcome = ({ data = null }) => {
   return (
     <WelcomeContainer>
-      <GmmapCarousel data={data.media} />
-      <WelcomeHeader>
-        <div>WELCOME TO</div>
-        {data.welcome}
-      </WelcomeHeader>
+      <CarouselContainer>
+        <GmmapCarousel data={data.media} />
+        <WelcomeHeader>
+          <WelcomeText>
+            WELCOME TO GEORGIAN MIXED MARTIAL ARTS PROMOTION
+          </WelcomeText>
+        </WelcomeHeader>
+      </CarouselContainer>
     </WelcomeContainer>
   );
 };
 
 const WelcomeContainer = styled(Container)`
+  @media (max-width: 950px) {
+    font-size: ${(props) => props.theme.font.size.md};
+  }
+`;
+const CarouselContainer = styled(Container)`
+  padding: ${(props) => props.theme.padding.xlg};
   position: relative;
 `;
+
 const WelcomeHeader = styled(Container)`
   position: absolute;
-  left: 7%;
-  top: 10%;
-  color: ${(props) => props.theme.color.white};
-  font-weight: ${(props) => props.theme.font.weight.bold};
-  font-size: ${(props) => props.theme.font.size.lg};
+  top: 100px;
+  left: 100px;
   flex-direction: column;
-  align-items: flex-start;
-  line-height: ${(props) => props.theme.size.lg};
-  width: ${(props) => props.theme.size.xxxxlg};
+  justify-content: left;
+  align-items: start;
   &:after {
     content: '__________';
-
     color: ${(props) => props.theme.color.red};
     padding-top: ${(props) => props.theme.padding.md};
     font-size: ${(props) => props.theme.font.size.md};
+  }
+`;
+
+const WelcomeText = styled(Container)`
+  width: 150px;
+  font-size: ${(props) => props.theme.font.size.msm};
+  font-weight: ${(props) => props.theme.font.weight.bold};
+  line-height: ${(props) => props.theme.font.size.smd};
+  letter-spacing: 1px;
+
+  @media (min-width: 950px) {
+    width: 150px;
+    font-size: ${(props) => props.theme.font.size.md};
+
+    line-height: ${(props) => props.theme.font.size.smd};
+  }
+
+  @media (min-width: 1200px) {
+    font-size: ${(props) => props.theme.font.size.smd};
+    width: 250px;
+    line-height: ${(props) => props.theme.font.size.lg};
   }
 `;
 

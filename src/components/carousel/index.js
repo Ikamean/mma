@@ -30,5 +30,5 @@ export default GmmapCarousel;
 
 const CarouselImg = styled.img`
   height: ${(props) => (props.size ? props.size.height : '100%')};
-  width: ${(props) => (props.size ? props.size.height : '100%')};
+  /* width: ${(props) => (props.size ? props.size.height : '100%')}; */
 `;

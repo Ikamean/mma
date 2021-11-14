@@ -23,19 +23,19 @@ const NavBar = () => {
     setBurgerMenu(false);
   };
   const firstNavbarItems = [
-    { location: '/athletes', name: 'Athletes' },
-    { location: '/events', name: 'Events' },
-    { location: '/about', name: 'About' },
-    { location: '/news', name: 'News' },
+    { location: '/', name: 'Athletes' },
+    { location: '/', name: 'Events' },
+    { location: '/', name: 'About' },
+    { location: '/', name: 'News' },
   ];
   const secondNavbarItems = [
-    { location: '/gallery', name: 'Gallery' },
-    { location: '/live', name: 'Live' },
-    { location: '/shop', name: 'Shop' },
+    { location: '', name: 'Gallery' },
+    { location: '', name: 'Live' },
+    { location: '', name: 'Shop' },
   ];
   return (
     <NavbarContainer visible={burgerMenu}>
-      <BurgerIcon onClick={() => setBurgerMenu(!burgerMenu)}>
+      {/* <BurgerIcon onClick={() => setBurgerMenu(!burgerMenu)}>
         {burgerMenu ? (
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -59,8 +59,8 @@ const NavBar = () => {
             <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
           </svg>
         )}
-      </BurgerIcon>
-      <LinkContainer>
+      </BurgerIcon> */}
+      {/* <LinkContainer>
         {firstNavbarItems.map((el) => (
           <LinkButton
             active={activePage === el.location && true}
@@ -69,17 +69,17 @@ const NavBar = () => {
             {el.name}
           </LinkButton>
         ))}
-      </LinkContainer>
+      </LinkContainer> */}
       <LinkContainer>
         <Logo
           active={activePage === '/' && true}
           onClick={() => handleNavigation('/')}
-          burgerMenu={burgerMenu}
+          // burgerMenu={burgerMenu}
         >
           G<ColoredLogo>MMA</ColoredLogo>P
         </Logo>
       </LinkContainer>
-      <LinkContainer>
+      {/* <LinkContainer>
         {secondNavbarItems.map((el) => (
           <LinkButton
             active={activePage === el.location && true}
@@ -88,7 +88,7 @@ const NavBar = () => {
             {el.name}
           </LinkButton>
         ))}
-      </LinkContainer>
+      </LinkContainer> */}
     </NavbarContainer>
   );
 };
@@ -96,18 +96,23 @@ const NavBar = () => {
 export default NavBar;
 
 const NavbarContainer = styled(Container)`
-  justify-content: space-between;
+  justify-content: flex-start;
+  align-items: start;
   gap: 1rem;
   background-color: ${(props) => props.theme.color.black};
   color: ${(props) => props.theme.color.white};
   font-size: ${(props) => props.theme.font.size.md};
-  padding: ${(props) => props.theme.padding.md};
+  padding-left: ${(props) => props.theme.padding.xlg};
+  padding-right: ${(props) => props.theme.padding.xlg};
+  padding-top: ${(props) => props.theme.padding.lg};
+  padding-bottom: ${(props) => props.theme.padding.lg};
+
   z-index: 1001;
   position: fixed;
   right: 0;
   left: 0;
 
-  @media screen and (max-width: 950px) {
+  /* @media screen and (max-width: 950px) {
     visibility: ${(props) => (props.visible ? 'visible' : 'hidden')};
     flex-direction: column;
     align-items: center;
@@ -120,7 +125,7 @@ const NavbarContainer = styled(Container)`
     bottom: 0;
     background-color: ${(props) => props.theme.color.black};
     padding: ${(props) => props.theme.padding.md};
-  }
+  } */
 `;
 
 const BurgerIcon = styled(Button)`
@@ -139,11 +144,12 @@ const BurgerIcon = styled(Button)`
 
 const LinkContainer = styled(Container)`
   width: ${(props) => props.theme.size.xxxxlg};
-  justify-content: center;
+  justify-content: left;
+  align-items: start;
   gap: ${(props) => props.theme.size.md};
   @media screen and (max-width: 950px) {
     flex-direction: column;
-    align-items: center;
+    align-items: start;
   }
 `;
 
@@ -169,13 +175,17 @@ const LinkButton = styled(Button)`
 const Logo = styled(LogoContainer)`
   cursor: pointer;
   color: ${(props) => props.theme.color.white};
+  /* position: absolute;
+  top: ${(props) => props.theme.size.lg};
+  left: ${(props) => props.theme.size.md}; */
+  text-align: left;
+  align-items: start;
+  justify-content: left;
 
   @media screen and (max-width: 950px) {
-    position: absolute;
-    top: ${(props) => props.theme.size.lg};
-    left: ${(props) => props.theme.size.md};
     font-size: ${(props) => props.theme.font.size.lmd};
     width: auto;
-    visibility: ${(props) => props.buergerMenu && 'visible'};
+    /* visibility: ${(props) => props.buergerMenu && 'visible'}; */
+    visibility: visible;
   }
 `;
