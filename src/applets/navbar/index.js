@@ -187,7 +187,8 @@ const Logo = styled(LogoContainer)`
     position: absolute;
     top: ${(props) => props.theme.size.sm};
     left: ${(props) => props.theme.size.sm};
-    border: 1px solid red;
+    outline: 1px solid red;
+    background-color: ${(props) => props.theme.color.black};
   }
 
   @media (max-width: 450px) {
