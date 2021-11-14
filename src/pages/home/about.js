@@ -22,11 +22,6 @@ const About = ({ data }) => {
           the most innovative programs in the nation.
         </ParagraphHeader>
         <ParagraphDescription>{about}</ParagraphDescription>
-        <VideoContainer>
-          <video width="100%" height="340" controls>
-            <source src={introVideo.url} type="video/mp4" />
-          </video>
-        </VideoContainer>
         <Signature>
           <DirectorDetails>
             <DirectorName>Aiden Richards</DirectorName>{' '}
@@ -34,6 +29,11 @@ const About = ({ data }) => {
           </DirectorDetails>
           <SignatureImg src={signature} />
         </Signature>
+        <VideoContainer>
+          <video width="100%" height="340" controls>
+            <source src={introVideo.url} type="video/mp4" />
+          </video>
+        </VideoContainer>
       </div>
     </AboutContainer>
   );
@@ -112,7 +112,7 @@ const VideoContainer = styled(Container)`
 
 const Signature = styled(Container)`
   padding-top: ${(props) => props.theme.padding.xlg};
-  justify-content: space-between;
+  justify-content: space-around;
 `;
 const DirectorDetails = styled(Container)`
   justify-content: left;
