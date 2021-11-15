@@ -25,7 +25,7 @@ const WelcomeContainer = styled(Container)`
   }
 `;
 const CarouselContainer = styled(Container)`
-  padding-top: ${(props) => props.theme.padding.xlg};
+  /* padding-top: ${(props) => props.theme.padding.xlg}; */
   padding-bottom: ${(props) => props.theme.padding.xlg};
 
   position: relative;
