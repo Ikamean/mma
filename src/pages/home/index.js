@@ -20,8 +20,9 @@ const Home = () => {
     getHomePageData();
   }, []);
 
-  if (homePageData.length === 0) return;
-  <Spinner />;
+  if (homePageData.length === 0) {
+    return <Spinner />;
+  }
 
   return (
     <PageBody>
