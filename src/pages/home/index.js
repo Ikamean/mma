@@ -21,7 +21,11 @@ const Home = () => {
   }, []);
 
   if (homePageData.length === 0) {
-    return <Spinner />;
+    return (
+      <PageBody>
+        <Spinner />
+      </PageBody>
+    );
   }
 
   return (
