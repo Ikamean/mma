@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "axios": "^0.23.0",
+    "netlify-cli": "^6.14.25",
     "normalize.css": "^8.0.1",
     "react": "next",
     "react-dom": "next",
@@ -38,5 +39,4 @@
       "last 1 safari version"
     ]
   }
-
 }
