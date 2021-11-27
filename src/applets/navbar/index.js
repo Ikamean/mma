@@ -131,7 +131,7 @@ const NavbarContainer = styled(Container)`
   }
 `;
 
-const BurgerIcon = styled(Button)`
+const BurgerIcon = styled(Container)`
   position: absolute;
   right: 0;
   top: 0;
