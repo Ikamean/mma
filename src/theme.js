@@ -49,7 +49,7 @@ const theme = {
     md: '1rem',
     lg: '2rem',
     slg: '2.5rem',
-    mlg: '3ren',
+    mlg: '3rem',
     xlg: '4rem',
     xxlg: '8rem',
     xxxlg: '12rem',

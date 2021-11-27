@@ -21,10 +21,10 @@ const WelcomeContainer = styled(Container)`
   @media (max-width: 950px) {
     font-size: ${(props) => props.theme.font.size.md};
   }
+  padding-bottom: ${(props) => props.theme.padding.slg};
 `;
 const CarouselContainer = styled(Container)`
   /* padding-top: ${(props) => props.theme.padding.xlg}; */
-  padding-bottom: ${(props) => props.theme.padding.xlg};
 
   position: relative;
 `;
