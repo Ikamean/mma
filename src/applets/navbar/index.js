@@ -75,7 +75,7 @@ const NavBar = () => {
         onClick={() => handleNavigation('/')}
         burgerMenu={burgerMenu}
       >
-        G<ColoredLogo>MMA</ColoredLogo>P
+        GMMA
       </Logo>
 
       <LinkContainer>
@@ -98,13 +98,13 @@ const NavbarContainer = styled(Container)`
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  background-color: ${(props) => props.theme.color.black};
+  background-color: ${(props) => props.theme.color.transparent};
   color: ${(props) => props.theme.color.white};
   font-size: ${(props) => props.theme.font.size.md};
   padding-left: ${(props) => props.theme.padding.xlg};
   padding-right: ${(props) => props.theme.padding.xlg};
-  padding-top: ${(props) => props.theme.padding.lg};
-  padding-bottom: ${(props) => props.theme.padding.lg};
+  padding-top: ${(props) => props.theme.padding.md};
+  /* padding-bottom: ${(props) => props.theme.padding.lg}; */
 
   z-index: 1001;
   position: fixed;
@@ -134,10 +134,16 @@ const BurgerIcon = styled(Button)`
 
   visibility: hidden;
   display: flex;
-  background-color: black;
   padding: ${(props) => props.theme.padding.md};
   @media screen and (max-width: 950px) {
     visibility: visible;
+    width: 100%;
+    align-items: right;
+    justify-content: right;
+    background-color: ${(props) => props.theme.color.transparent};
+  }
+  &:hover {
+    outline: none;
   }
 `;
 
@@ -185,10 +191,8 @@ const Logo = styled(LogoContainer)`
     width: auto;
     visibility: visible;
     position: absolute;
-    top: ${(props) => props.theme.size.sm};
+    top: ${(props) => props.theme.size.md};
     left: ${(props) => props.theme.size.sm};
-    outline: 1px solid red;
-    background-color: ${(props) => props.theme.color.black};
   }
 
   @media (max-width: 450px) {

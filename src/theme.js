@@ -7,6 +7,7 @@ const theme = {
     white: '#fff',
     grey: '#abadb1',
     red: '#ff0000',
+    transparent: 'rgba(0, 0, 0, 0.5)',
   },
   font: {
     size: {

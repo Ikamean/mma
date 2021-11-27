@@ -10,9 +10,7 @@ const Welcome = ({ data = null }) => {
       <CarouselContainer>
         <GmmapCarousel data={data.media} />
         <WelcomeHeader>
-          <WelcomeText>
-            WELCOME TO GEORGIAN MIXED MARTIAL ARTS PROMOTION
-          </WelcomeText>
+          <WelcomeText>WELCOME TO GEORGIAN MIXED MARTIAL ARTS</WelcomeText>
         </WelcomeHeader>
       </CarouselContainer>
     </WelcomeContainer>

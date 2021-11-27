@@ -17,14 +17,11 @@ const About = ({ data }) => {
       <div>
         <AFterEffect>
           <Header>
-            <div>ABOUT</div>{' '}
-            <GMMAP>
-              G<ColoredLogo>MMA</ColoredLogo>P
-            </GMMAP>
+            <div>ABOUT</div> <GMMAP>GMMA</GMMAP>
           </Header>
         </AFterEffect>
         <ParagraphHeader>
-          GMMAP has specialized in martial arts since 1986 and has one of the
+          GMMA has specialized in martial arts since 1986 and has one of the
           most innovative organization in the nation.
         </ParagraphHeader>
         <ParagraphDescription extended={seeMoreDescription}>
@@ -40,7 +37,7 @@ const About = ({ data }) => {
               height="24px"
               viewBox="0 0 24 24"
               width="24px"
-              fill="#fff"
+              fill="#000"
             >
               <path d="M0 0h24v24H0V0z" fill="none" />
               <path d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14l-6-6z" />
@@ -51,7 +48,7 @@ const About = ({ data }) => {
               height="24px"
               viewBox="0 0 24 24"
               width="24px"
-              fill="#fff"
+              fill="#000"
             >
               <path d="M24 24H0V0h24v24z" fill="none" opacity=".87" />
               <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6-1.41-1.41z" />
@@ -78,10 +75,12 @@ const About = ({ data }) => {
 };
 
 const AboutContainer = styled(Container)`
-  background-color: ${(props) => props.theme.color.black};
-  color: ${(props) => props.theme.color.white};
-  padding-top: ${(props) => props.theme.padding.xlg};
-  padding-bottom: ${(props) => props.theme.padding.xlg};
+  background-color: ${(props) => props.theme.color.white};
+  color: ${(props) => props.theme.color.black};
+  padding-top: ${(props) => props.theme.padding.lg};
+  padding-bottom: ${(props) => props.theme.padding.lg};
+  padding-left: ${(props) => props.theme.padding.lg};
+  padding-right: ${(props) => props.theme.padding.lg};
 
   align-items: center;
   justify-content: flex-start;
@@ -116,7 +115,7 @@ const Header = styled(Container)`
 
 const GMMAP = styled(LogoContainer)`
   padding-left: ${(props) => props.theme.size.md};
-  color: ${(props) => props.theme.color.white};
+  color: ${(props) => props.theme.color.black};
 `;
 
 const Paragraph = styled(Container)`
@@ -135,10 +134,9 @@ const ParagraphHeader = styled(Paragraph)`
 `;
 
 const ParagraphDescription = styled.p`
-  color: ${(props) => props.theme.color.grey};
+  color: ${(props) => props.theme.color.black};
   padding-top: ${(props) => props.theme.padding.lg};
-  padding-right: ${(props) => props.theme.padding.lg};
-  padding-left: ${(props) => props.theme.padding.lg};
+
   line-height: ${(props) => props.theme.size.lg};
 
   position: relative;
