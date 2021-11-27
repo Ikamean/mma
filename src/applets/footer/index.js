@@ -7,6 +7,8 @@ import {
   Button,
 } from 'components/styled/';
 
+import logo from 'media/logo.svg';
+
 const Footer = () => {
   return (
     <FooterContainer>
@@ -37,6 +39,7 @@ const Footer = () => {
         <Container>helllo world</Container>
         <Container>helllo world</Container>
       </Container> */}
+      {/* <img src={logo} alt="React Logo" width="auto" height="50" /> */}
       <AllRights>© 2021 All Rights Reserved GMMA</AllRights>
     </FooterContainer>
   );
