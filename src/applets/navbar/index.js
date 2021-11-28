@@ -141,6 +141,7 @@ const BurgerIcon = styled(Container)`
   display: -webkit-box;
   display: -ms-flexbox;
   padding: ${(props) => props.theme.padding.md};
+  padding-right: ${(props) => props.theme.padding.msm};
   @media screen and (max-width: 950px) {
     visibility: visible;
     width: 100%;
@@ -158,6 +159,7 @@ const BurgerIcon = styled(Container)`
 `;
 
 const Burger = styled(Button)`
+  padding: 0;
   &:hover {
     outline: none;
   }
@@ -204,6 +206,7 @@ const Logo = styled(LogoContainer)`
   @media screen and (max-width: 950px) {
     font-size: ${(props) => props.theme.font.size.md};
     padding: ${(props) => props.theme.padding.sm};
+
     width: auto;
     visibility: visible;
     position: absolute;
