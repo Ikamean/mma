@@ -138,12 +138,14 @@ const BurgerIcon = styled(Container)`
 
   visibility: hidden;
   display: flex;
+  display: -webkit-flex;
   padding: ${(props) => props.theme.padding.md};
   @media screen and (max-width: 950px) {
     visibility: visible;
     width: 100%;
-    align-items: right;
+    align-items: center;
     justify-content: right;
+    -webkit-justify-content: right;
     background-color: ${(props) => props.theme.color.transparent};
   }
   &:hover {
