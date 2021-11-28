@@ -147,9 +147,9 @@ const BurgerIcon = styled(Container)`
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    -webkit-box-pack: right;
-    -ms-flex-pack: right;
-    justify-content: right;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
     background-color: ${(props) => props.theme.color.transparent};
   }
   &:hover {
