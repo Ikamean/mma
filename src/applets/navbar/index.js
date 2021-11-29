@@ -10,6 +10,8 @@ import {
   ColoredLogo,
 } from 'components/styled/';
 
+import GMMA from 'media/whiteLogo.svg';
+
 const NavBar = () => {
   const history = useHistory();
   const [activePage, setActivePage] = useState('home');
@@ -74,13 +76,13 @@ const NavBar = () => {
         ))}
       </LinkContainer>
 
-      <Logo
+      <LogoWrapper
         active={activePage === '/' && true}
         onClick={() => handleNavigation('/')}
         burgerMenu={burgerMenu}
       >
-        GMMA
-      </Logo>
+        <Logo src={GMMA} alt="svg logo" />
+      </LogoWrapper>
 
       <LinkContainer>
         {secondNavbarItems.map((el) => (
@@ -126,7 +128,7 @@ const NavbarContainer = styled(Container)`
     top: 0;
     right: 0;
     bottom: 0;
-    background-color: ${(props) => props.theme.color.black};
+    background-color: ${(props) => props.theme.color.darkBlack};
     padding: ${(props) => props.theme.padding.md};
   }
 `;
@@ -195,26 +197,24 @@ const LinkButton = styled(Button)`
   }
 `;
 
-const Logo = styled(LogoContainer)`
+const Logo = styled.img`
+  height: 50;
+  width: 100;
   cursor: pointer;
   color: ${(props) => props.theme.color.white};
   text-align: center;
   align-items: center;
   justify-content: center;
-  width: ${(props) => props.theme.size.xxxxlg};
 
   @media screen and (max-width: 950px) {
-    font-size: ${(props) => props.theme.font.size.md};
-    padding: ${(props) => props.theme.padding.sm};
-
-    width: auto;
+    padding-top: 0;
     visibility: visible;
     position: absolute;
-    top: ${(props) => props.theme.size.md};
+    top: ${(props) => props.theme.size.lmd};
     left: ${(props) => props.theme.size.sm};
   }
 
   @media (max-width: 450px) {
-    font-size: ${(props) => props.theme.font.size.msm};
   }
 `;
+const LogoWrapper = styled(LogoContainer)``;

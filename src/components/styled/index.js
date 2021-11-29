@@ -4,10 +4,10 @@ export const PageBody = styled.div`
   overflow-y: auto;
   min-height: calc(100vh - 155px);
   padding-top: ${(props) => props.theme.padding.xlg};
-  padding-bottom: ${(props) => props.theme.padding.slg};
+  /* padding-bottom: ${(props) => props.theme.padding.slg}; */
   /* padding-left: ${(props) => props.theme.padding.lg};
   padding-right: ${(props) => props.theme.padding.lg}; */
-  background-color: ${(props) => props.theme.color.black};
+  background-color: ${(props) => props.theme.color.darkBlack};
   margin: 0px !important;
   color: ${(props) => props.theme.color.white};
 `;

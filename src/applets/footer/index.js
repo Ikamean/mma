@@ -7,14 +7,16 @@ import {
   Button,
 } from 'components/styled/';
 
-import logo from 'media/logo.svg';
+import GMMA from 'media/GMMA.svg';
 
 const Footer = () => {
   return (
     <FooterContainer>
       <LogoAndContacts>
         <FooterItem>
-          <LogoContainer>GMMA</LogoContainer>
+          <LogoContainer>
+            <GmmaLogo src={GMMA} alt="logo svg" />
+          </LogoContainer>
         </FooterItem>
 
         <SocialContainer>
@@ -49,8 +51,9 @@ export default Footer;
 
 const FooterContainer = styled(Container)`
   color: ${(props) => props.theme.color.black};
-  border-top: 1px solid ${(props) => props.theme.color.grey};
+  /* border-top: 1px solid ${(props) => props.theme.color.grey}; */
   padding: ${(props) => props.theme.padding.md};
+  background-color: ${(props) => props.theme.color.black};
 
   position: static;
   bottom: 0;
@@ -70,8 +73,24 @@ const FooterContainer = styled(Container)`
   /* border: 1px solid red; */
 `;
 
+const GmmaLogo = styled.img`
+  width: auto;
+  height: ${(props) => props.theme.size.xxxxlg};
+  object-fit: cover;
+  padding-left: ${(props) => props.theme.padding.xxlg};
+
+  @media (max-width: 950px) {
+    height: ${(props) => props.theme.size.xxxlg};
+    padding-left: ${(props) => props.theme.padding.lg};
+  }
+
+  @media (max-width: 450px) {
+    height: ${(props) => props.theme.size.xxlg};
+  }
+`;
 const LogoAndContacts = styled(Container)`
   justify-content: space-between;
+  align-items: end;
   width: 80%;
   /* border: 1px solid red; */
 `;
@@ -90,6 +109,7 @@ const AllRights = styled(Container)`
 const SocialContainer = styled(FooterItem)`
   gap: ${(props) => props.theme.size.sm};
   width: ${(props) => props.theme.size.xlg};
+  /* align-items: top; */
 `;
 const SocialButton = styled(Button)`
   color: ${(props) => props.theme.color.white};
