@@ -198,16 +198,10 @@ const LinkButton = styled(Button)`
 `;
 
 const Logo = styled.img`
-  height: 50;
-  width: 100;
-  cursor: pointer;
-  color: ${(props) => props.theme.color.white};
-  text-align: center;
-  align-items: center;
-  justify-content: center;
+  /* height: 50;
+  width: 100; */
 
   @media screen and (max-width: 950px) {
-    padding-top: 0;
     visibility: visible;
     position: absolute;
     top: ${(props) => props.theme.size.lmd};
@@ -217,4 +211,6 @@ const Logo = styled.img`
   @media (max-width: 450px) {
   }
 `;
-const LogoWrapper = styled(LogoContainer)``;
+const LogoWrapper = styled(LogoContainer)`
+  cursor: pointer;
+`;
