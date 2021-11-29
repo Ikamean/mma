@@ -15,14 +15,14 @@ function Spinner() {
 
   return (
     <Centered>
-      <div className="sweet-loading">
+      <Loader className="sweet-loading">
         <ClimbingBoxLoader
           color={color}
           loading={loading}
           css={override}
           size={15}
         />
-      </div>
+      </Loader>
     </Centered>
   );
 }
@@ -30,9 +30,20 @@ function Spinner() {
 export default Spinner;
 
 const Centered = styled.div`
-  position: absolute;
+  /* position: absolute;
   left: 0;
   right: 0;
-  top: 40%;
+  top: 0;
+  bottom: 0; */
+
   z-index: 99999;
+  background-color: ${(props) => props.theme.color.darkBlack};
+`;
+
+const Loader = styled.div`
+  position: absolute;
+  top: 30%;
+
+  left: 0;
+  right: 0;
 `;

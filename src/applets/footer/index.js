@@ -7,7 +7,7 @@ import {
   Button,
 } from 'components/styled/';
 
-import GMMA from 'media/GMMA.svg';
+import GMMA from 'media/gmma.jpg';
 
 const Footer = () => {
   return (
@@ -69,8 +69,6 @@ const FooterContainer = styled(Container)`
   @media (max-width: 450px) {
     font-size: ${(props) => props.theme.font.size.sm};
   }
-
-  /* border: 1px solid red; */
 `;
 
 const GmmaLogo = styled.img`
@@ -80,7 +78,7 @@ const GmmaLogo = styled.img`
   padding-left: ${(props) => props.theme.padding.xxlg};
 
   @media (max-width: 950px) {
-    height: ${(props) => props.theme.size.xxxlg};
+    height: ${(props) => props.theme.size.xxlg};
     padding-left: ${(props) => props.theme.padding.lg};
   }
 
@@ -92,6 +90,7 @@ const LogoAndContacts = styled(Container)`
   justify-content: space-between;
   align-items: end;
   width: 80%;
+
   /* border: 1px solid red; */
 `;
 
@@ -108,7 +107,7 @@ const AllRights = styled(Container)`
 
 const SocialContainer = styled(FooterItem)`
   gap: ${(props) => props.theme.size.sm};
-  width: ${(props) => props.theme.size.xlg};
+  width: ${(props) => props.theme.size.xxlg};
   /* align-items: top; */
 `;
 const SocialButton = styled(Button)`
