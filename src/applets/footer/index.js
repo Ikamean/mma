@@ -4,7 +4,11 @@ import { Container, ContainerHeader } from 'components/styled/';
 
 import GMMA from 'media/gmma.jpg';
 
+import { useTranslation } from 'react-i18next';
+
 const Footer = () => {
+  const { t } = useTranslation();
+
   return (
     <FooterContainer>
       <FirstSection>
@@ -84,7 +88,7 @@ const Footer = () => {
         </FooterDetailsContainer>
       </FirstSection>
 
-      <AllRights>© 2021 All Rights Reserved GMMA</AllRights>
+      <AllRights>{t('footer.allRights')}</AllRights>
     </FooterContainer>
   );
 };

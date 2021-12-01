@@ -3,20 +3,21 @@ import styled from 'styled-components';
 
 import { useHistory } from 'react-router-dom';
 
-import {
-  Container,
-  Button,
-  LogoContainer,
-  ColoredLogo,
-} from 'components/styled/';
+import { Container, Button } from 'components/styled/';
 
 import GMMA from 'media/whiteLogo.svg';
+
+import Language from 'components/language';
+
+import { useTranslation } from 'react-i18next';
 
 const NavBar = () => {
   const history = useHistory();
   const [activePage, setActivePage] = useState('/');
   const [burgerMenu, setBurgerMenu] = useState(false);
   const [userScrolling, setUserScrolling] = useState(false);
+
+  const { t } = useTranslation();
 
   const handleNavigation = (direction) => {
     history.push(direction);
@@ -45,6 +46,7 @@ const NavBar = () => {
   ];
   return (
     <NavbarContainerWrapper>
+      <Language />
       <BurgerAndLogoContainer menuIsOpen={burgerMenu} scrolling={userScrolling}>
         <BurgerIcon>
           {burgerMenu ? (

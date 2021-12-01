@@ -4,13 +4,17 @@ import { Container } from 'components/styled';
 
 import GmmapCarousel from 'components/carousel';
 
+import { useTranslation } from 'react-i18next';
+
 const Welcome = ({ data = null }) => {
+  const { t } = useTranslation();
+
   return (
     <WelcomeContainer>
       <CarouselContainer>
         <GmmapCarousel data={data.media} />
         <WelcomeHeader>
-          <WelcomeText>WELCOME TO GEORGIAN MIXED MARTIAL ARTS</WelcomeText>
+          <WelcomeText>{t('homePage.welcome')}</WelcomeText>
         </WelcomeHeader>
       </CarouselContainer>
     </WelcomeContainer>
@@ -44,10 +48,14 @@ const WelcomeHeader = styled(Container)`
     color: ${(props) => props.theme.color.red};
     padding-top: ${(props) => props.theme.padding.md};
     font-size: ${(props) => props.theme.font.size.md};
+
+    @media (max-width: 450px) {
+      content: '____';
+    }
   }
 
   @media (max-width: 450px) {
-    top: 100px;
+    top: 50px;
     left: 20px;
   }
 `;

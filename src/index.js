@@ -4,6 +4,7 @@ import App from 'app';
 
 import Theme from './theme';
 
+import './i18n';
 import 'normalize.css';
 import 'index.css';
 

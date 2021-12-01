@@ -1,0 +1,27 @@
+{
+    "navbar":{
+        "athletes":"Athletes",
+        "events":"Events",
+        "about":"About",
+        "news":"News",
+        "gallery":"Gallery",
+        "live":"Live",
+        "shop":"Shop",
+        "contact":"Contact"
+    },
+    "homePage":{
+        "welcome": "WELCOME TO GEORGIAN MIXED MARTIAL ARTS",
+        "about" : {
+            "header": "ABOUT GMMA",
+            "paragraphHeader": "Join the world-class Georgian MMA platform",
+            "paragraph":"When a very difficult era has come for Georgia, young people are actually deprived of the chance to realize their own strength. There were people who dedicated their whole lives to the art of mixed martial and did not spare their own experience and knowledge to share with other young people. We are GMMA Georgia Mixed Martial Arts Federation, a Georgian analogue of an international organization founded by renowned Georgian mixed martial arts veteran, world champion Gia Chiraghishvili. Mr. Gia is the President of the Georgian Branch of both GMMA and GAMMA International, and the Vice Presidents of these two companies are Davit Shvelidze and Giorgi Kabulashvili. Today, the interest in MMA is growing both in the world and in Georgia, and our organization is working to promote this sport. The goal of the organization is to develop MMA in our country, to create a platform for young athletes, which will improve their skills and enable them to compete in international organizations.. We cooperate with various organizations and through joint efforts, we try to open the world arena to talented young people.",
+            "giaChiraghishvili":"Gia Chiraghishvili",
+            "president":"PRESIDENT / FOUNDER"
+
+                }
+    },
+    "footer":{
+        "socialMedia":"Social Media",
+        "allRights":"© 2021 All Rights Reserved GMMA"
+    }
+}

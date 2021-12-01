@@ -1,30 +1,24 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import {
-  Container,
-  LogoContainer,
-  ColoredLogo,
-  Button,
-} from 'components/styled';
+import { Container, LogoContainer, Button } from 'components/styled';
+
+import { useTranslation } from 'react-i18next';
 
 import signature from 'media/signature.jpg';
 
 const About = ({ data }) => {
   const { about, introVideo } = data;
   const [seeMoreDescription, setSeeMoreDescription] = useState(true);
+  const { t } = useTranslation();
   return (
     <AboutContainer>
       <div>
         <AFterEffect>
-          <Header>
-            <div>ABOUT</div> <GMMAP>GMMA</GMMAP>
-          </Header>
+          <Header>{t('homePage.about.header')}</Header>
         </AFterEffect>
-        <ParagraphHeader>
-          Join the world-class Georgian MMA platform
-        </ParagraphHeader>
+        <ParagraphHeader>{t(`homePage.about.paragraphHeader`)}</ParagraphHeader>
         <ParagraphDescription extended={seeMoreDescription}>
-          {about}
+          {t(`homePage.about.paragraph`)}
         </ParagraphDescription>
         {/* <SeeMore
           onClick={() => setSeeMoreDescription(!seeMoreDescription)}
@@ -56,8 +50,8 @@ const About = ({ data }) => {
         </SeeMore> */}
         <Signature>
           <DirectorDetails>
-            <DirectorName>Gia Chiraghishvili</DirectorName>{' '}
-            <Director>PRESIDENT / FOUNDER</Director>
+            <DirectorName>{t(`homePage.about.giaChiraghishvili`)}</DirectorName>{' '}
+            <Director>{t(`homePage.about.president`)}</Director>
           </DirectorDetails>
           {/* <SignatureImg src={signature} /> */}
         </Signature>
