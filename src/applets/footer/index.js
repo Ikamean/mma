@@ -49,7 +49,12 @@ const Footer = () => {
               </SocialButton>
             </FooterItemWrapper>
             <FooterItemWrapper>
-              <SocialButton>Instagram</SocialButton>
+              <SocialButton
+                href="https://www.instagram.com/gmma_promotion/"
+                target="blank"
+              >
+                Instagram
+              </SocialButton>
             </FooterItemWrapper>
             <FooterItemWrapper>
               <SocialButton>Youtube</SocialButton>
@@ -58,12 +63,7 @@ const Footer = () => {
           <FooterItemsContainer>
             <FooterItemsHeader>HELP</FooterItemsHeader>
             <FooterItemWrapper>
-              <SocialButton
-                href="https://www.facebook.com/gmmageorgia"
-                target="blank"
-              >
-                FAQ
-              </SocialButton>
+              <SocialButton>FAQ</SocialButton>
             </FooterItemWrapper>
             <FooterItemWrapper>
               <SocialButton>Contact</SocialButton>
