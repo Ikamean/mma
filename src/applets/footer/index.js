@@ -13,7 +13,7 @@ const Footer = () => {
         </Container>
 
         <FooterDetailsContainer>
-          <FooterItemsContainer>
+          {/* <FooterItemsContainer>
             <FooterItemsHeader>GMMA</FooterItemsHeader>
             <FooterItemWrapper>
               <SocialButton
@@ -36,10 +36,10 @@ const Footer = () => {
             <FooterItemWrapper>
               <SocialButton>Gallery</SocialButton>
             </FooterItemWrapper>
-          </FooterItemsContainer>
+          </FooterItemsContainer> */}
 
           <FooterItemsContainer>
-            <FooterItemsHeader>SOCIAL</FooterItemsHeader>
+            <FooterItemsHeader>SOCIAL MEDIA</FooterItemsHeader>
             <FooterItemWrapper>
               <SocialButton
                 href="https://www.facebook.com/gmmageorgia"
@@ -59,8 +59,11 @@ const Footer = () => {
             <FooterItemWrapper>
               <SocialButton>Youtube</SocialButton>
             </FooterItemWrapper>
+            <FooterItemWrapper>
+              <SocialButton>Live</SocialButton>
+            </FooterItemWrapper>
           </FooterItemsContainer>
-          <FooterItemsContainer>
+          {/* <FooterItemsContainer>
             <FooterItemsHeader>HELP</FooterItemsHeader>
             <FooterItemWrapper>
               <SocialButton>FAQ</SocialButton>
@@ -75,7 +78,7 @@ const Footer = () => {
             <FooterItemWrapper>
               <SocialButton>Shop</SocialButton>
             </FooterItemWrapper>
-          </FooterItemsContainer>
+          </FooterItemsContainer> */}
         </FooterDetailsContainer>
       </FirstSection>
 
