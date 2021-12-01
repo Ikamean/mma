@@ -118,6 +118,10 @@ const FooterDetailsContainer = styled(Container)`
   align-items: start;
   gap: ${(props) => props.theme.size.lg};
   /* padding-right: ${(props) => props.theme.padding.lg}; */
+
+  @media (max-width: 450px) {
+    gap: ${(props) => props.theme.size.sm};
+  }
 `;
 const GmmaLogo = styled.img`
   width: auto;
@@ -127,7 +131,7 @@ const GmmaLogo = styled.img`
 
   @media (max-width: 950px) {
     height: ${(props) => props.theme.size.xxlg};
-    padding-left: ${(props) => props.theme.padding.lg};
+    /* padding-left: ${(props) => props.theme.padding.lg}; */
   }
 
   @media (max-width: 450px) {

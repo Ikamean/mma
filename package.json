@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "normalize.css": "^8.0.1",
     "react": "next",
     "react-dom": "next",
     "react-responsive-carousel": "^3.2.22",
