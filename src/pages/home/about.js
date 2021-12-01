@@ -11,7 +11,7 @@ import signature from 'media/signature.jpg';
 
 const About = ({ data }) => {
   const { about, introVideo } = data;
-  const [seeMoreDescription, setSeeMoreDescription] = useState(false);
+  const [seeMoreDescription, setSeeMoreDescription] = useState(true);
   return (
     <AboutContainer>
       <div>
@@ -21,13 +21,12 @@ const About = ({ data }) => {
           </Header>
         </AFterEffect>
         <ParagraphHeader>
-          GMMA has specialized in martial arts since 1986 and has one of the
-          most innovative organization in the nation.
+          Join the world-class Georgian MMA platform
         </ParagraphHeader>
         <ParagraphDescription extended={seeMoreDescription}>
           {about}
         </ParagraphDescription>
-        <SeeMore
+        {/* <SeeMore
           onClick={() => setSeeMoreDescription(!seeMoreDescription)}
           active={seeMoreDescription}
         >
@@ -54,13 +53,13 @@ const About = ({ data }) => {
               <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6-1.41-1.41z" />
             </svg>
           )}
-        </SeeMore>
+        </SeeMore> */}
         <Signature>
           <DirectorDetails>
-            <DirectorName>Aiden Richards</DirectorName>{' '}
-            <Director>DIRECTOR / FOUNDER</Director>
+            <DirectorName>Gia Chiraghishvili</DirectorName>{' '}
+            <Director>PRESIDENT / FOUNDER</Director>
           </DirectorDetails>
-          <SignatureImg src={signature} />
+          {/* <SignatureImg src={signature} /> */}
         </Signature>
         {introVideo && (
           <VideoContainer>
@@ -128,6 +127,10 @@ const Paragraph = styled(Container)`
 `;
 
 const ParagraphHeader = styled(Paragraph)`
+  font-weight: ${(props) => props.theme.font.weight.bold};
+  justify-content: flex-start;
+  padding-left: ${(props) => props.theme.padding.md};
+
   @media (max-width: 950px) {
     font-size: ${(props) => props.theme.font.size.lsm};
   }
@@ -136,9 +139,10 @@ const ParagraphHeader = styled(Paragraph)`
 const ParagraphDescription = styled.p`
   color: ${(props) => props.theme.color.black};
   padding-top: ${(props) => props.theme.padding.lg};
+  padding-left: ${(props) => props.theme.padding.md};
+  padding-right: ${(props) => props.theme.padding.md};
 
   line-height: ${(props) => props.theme.size.lg};
-
   position: relative;
   height: ${(props) => (props.extended ? 'auto' : '60px')};
   overflow-y: hidden;
@@ -170,7 +174,8 @@ const VideoContainer = styled(Container)`
 
 const Signature = styled(Container)`
   padding-top: ${(props) => props.theme.padding.xlg};
-  justify-content: space-around;
+  justify-content: flex-start;
+  padding-left: ${(props) => props.theme.padding.md};
 `;
 const DirectorDetails = styled(Container)`
   justify-content: left;
@@ -179,19 +184,19 @@ const DirectorDetails = styled(Container)`
 `;
 
 const DirectorName = styled.span`
-  font-size: ${(props) => props.theme.font.size.smd};
+  font-size: ${(props) => props.theme.font.size.md};
 
-  @media (max-width: 450px) {
+  @media (max-width: 950px) {
     font-size: ${(props) => props.theme.font.size.md};
   }
 `;
 const Director = styled.span`
-  font-size: ${(props) => props.theme.font.size.msm};
+  font-size: ${(props) => props.theme.font.size.sm};
   padding-top: ${(props) => props.theme.padding.sm};
   color: ${(props) => props.theme.color.red};
   font-weight: ${(props) => props.theme.font.weight.bold};
 
-  @media (max-width: 450px) {
+  @media (max-width: 950px) {
     font-size: ${(props) => props.theme.font.size.sm};
   }
 `;

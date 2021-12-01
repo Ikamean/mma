@@ -20,7 +20,12 @@ const Footer = () => {
         </FooterItem>
 
         <SocialContainer>
-          <SocialButton>Facebook</SocialButton>
+          <SocialButton
+            href="https://www.facebook.com/gmmageorgia"
+            target="blank"
+          >
+            Facebook
+          </SocialButton>
           <SocialButton>Instagram</SocialButton>
           <SocialButton>Youtube</SocialButton>
         </SocialContainer>
@@ -103,15 +108,24 @@ const AllRights = styled(Container)`
   justify-content: center;
   padding: ${(props) => props.theme.padding.md};
   padding-bottom: 0;
+  font-size: ${(props) => props.theme.font.size.msm};
+  @media (max-width: 950px) {
+    font-size: ${(props) => props.theme.font.size.sm};
+  }
 `;
 
 const SocialContainer = styled(FooterItem)`
-  gap: ${(props) => props.theme.size.sm};
+  gap: ${(props) => props.theme.size.md};
   width: ${(props) => props.theme.size.xxlg};
-  /* align-items: top; */
+  font-size: ${(props) => props.theme.font.size.msm};
+
+  @media (max-width: 950px) {
+    font-size: ${(props) => props.theme.font.size.sm};
+  }
 `;
-const SocialButton = styled(Button)`
+const SocialButton = styled.a`
   color: ${(props) => props.theme.color.white};
+  cursor: pointer;
 
   &:hover {
     outline: none;

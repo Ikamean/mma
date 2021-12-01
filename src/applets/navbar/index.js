@@ -29,12 +29,13 @@ const NavBar = () => {
     { location: '/', name: 'News' },
   ];
   const secondNavbarItems = [
-    { location: '', name: 'Gallery' },
-    { location: '', name: 'Live' },
-    { location: '', name: 'Shop' },
+    { location: '/', name: 'Gallery' },
+    { location: '/', name: 'Live' },
+    { location: '/', name: 'Shop' },
+    { location: '/', name: 'Contact' },
   ];
   return (
-    <NavbarContainer visible={burgerMenu}>
+    <NavbarContainerWrapper>
       <BurgerIcon>
         {burgerMenu ? (
           <Burger onClick={() => setBurgerMenu(!burgerMenu)}>
@@ -64,18 +65,6 @@ const NavBar = () => {
           </Burger>
         )}
       </BurgerIcon>
-
-      <LinkContainer>
-        {firstNavbarItems.map((el) => (
-          <LinkButton
-            active={activePage === el.location && true}
-            onClick={() => handleNavigation(el.location)}
-          >
-            {el.name}
-          </LinkButton>
-        ))}
-      </LinkContainer>
-
       <LogoWrapper
         active={activePage === '/' && true}
         onClick={() => handleNavigation('/')}
@@ -83,45 +72,61 @@ const NavBar = () => {
       >
         <Logo src={GMMA} alt="svg logo" />
       </LogoWrapper>
+      <NavbarContainer visible={burgerMenu}>
+        <LinkContainer>
+          {firstNavbarItems.map((el) => (
+            <LinkButton
+              active={activePage === el.location && true}
+              onClick={() => handleNavigation(el.location)}
+            >
+              {el.name}
+            </LinkButton>
+          ))}
+        </LinkContainer>
 
-      <LinkContainer>
-        {secondNavbarItems.map((el) => (
-          <LinkButton
-            active={activePage === el.location && true}
-            onClick={() => handleNavigation(el.location)}
-          >
-            {el.name}
-          </LinkButton>
-        ))}
-      </LinkContainer>
-    </NavbarContainer>
+        <LinkContainer>
+          {secondNavbarItems.map((el) => (
+            <LinkButton
+              active={activePage === el.location && true}
+              onClick={() => handleNavigation(el.location)}
+            >
+              {el.name}
+            </LinkButton>
+          ))}
+        </LinkContainer>
+      </NavbarContainer>
+    </NavbarContainerWrapper>
   );
 };
 
 export default NavBar;
 
-const NavbarContainer = styled(Container)`
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-  background-color: ${(props) => props.theme.color.transparent};
-  color: ${(props) => props.theme.color.white};
-  font-size: ${(props) => props.theme.font.size.md};
-  padding-left: ${(props) => props.theme.padding.xlg};
-  padding-right: ${(props) => props.theme.padding.xlg};
-  padding-top: ${(props) => props.theme.padding.md};
-  /* padding-bottom: ${(props) => props.theme.padding.lg}; */
-
+const NavbarContainerWrapper = styled(Container)`
   z-index: 1001;
   position: fixed;
   right: 0;
   left: 0;
+`;
+
+const NavbarContainer = styled(Container)`
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  /* gap: 5rem; */
+  background-color: ${(props) => props.theme.color.transparent};
+  color: ${(props) => props.theme.color.white};
+  font-size: ${(props) => props.theme.font.size.md};
+  padding-left: ${(props) => props.theme.padding.lg};
+  padding-right: ${(props) => props.theme.padding.lg};
+  padding-top: ${(props) => props.theme.padding.md};
+  padding-bottom: ${(props) => props.theme.padding.md};
 
   @media screen and (max-width: 950px) {
     visibility: ${(props) => (props.visible ? 'visible' : 'hidden')};
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 1rem;
     position: fixed;
     z-index: 1001;
     left: 0;
@@ -137,6 +142,7 @@ const BurgerIcon = styled(Container)`
   position: absolute;
   right: 0;
   top: 0;
+  z-index: 9999;
 
   visibility: hidden;
   display: flex;
@@ -168,9 +174,9 @@ const Burger = styled(Button)`
 `;
 
 const LinkContainer = styled(Container)`
-  width: ${(props) => props.theme.size.xxxxlg};
+  width: ${(props) => props.theme.size.xxxxxlg};
   justify-content: center;
-  align-items: start;
+  align-items: center;
   gap: ${(props) => props.theme.size.md};
   @media screen and (max-width: 950px) {
     flex-direction: column;
@@ -181,7 +187,7 @@ const LinkContainer = styled(Container)`
 const LinkButton = styled(Button)`
   padding: ${(props) => props.theme.padding.xsm};
   transition: all 0.1 ease-in-out;
-  width: ${(props) => props.theme.size.xlg};
+  width: 4.5rem;
   height: ${(props) => props.theme.size.lg};
   font-weight: ${(props) => props.theme.font.weight.bold};
   color: ${(props) => props.theme.color.white};
@@ -191,7 +197,7 @@ const LinkButton = styled(Button)`
       ? `1px dotted ${props.theme.color.red}`
       : props.theme.color.black}; */
   @media screen and (max-width: 950px) {
-    text-align: center;
+    text-align: left;
     align-items: center;
     width: 100%;
   }
@@ -200,12 +206,18 @@ const LinkButton = styled(Button)`
 const Logo = styled.img`
   /* height: 50;
   width: 100; */
+  z-index: 9999;
+
+  position: absolute;
+  top: ${(props) => props.theme.size.lmd};
+  right: 50%;
+  transform: translate(50%);
 
   @media screen and (max-width: 950px) {
     visibility: visible;
-    position: absolute;
-    top: ${(props) => props.theme.size.lmd};
-    left: ${(props) => props.theme.size.sm};
+    left: ${(props) => props.theme.size.md};
+
+    transform: none;
   }
 
   @media (max-width: 450px) {
