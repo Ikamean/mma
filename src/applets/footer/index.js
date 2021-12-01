@@ -40,28 +40,30 @@ const Footer = () => {
 
           <FooterItemsContainer>
             <FooterItemsHeader>SOCIAL MEDIA</FooterItemsHeader>
-            <FooterItemWrapper>
-              <SocialButton
-                href="https://www.facebook.com/gmmageorgia"
-                target="blank"
-              >
-                Facebook
-              </SocialButton>
-            </FooterItemWrapper>
-            <FooterItemWrapper>
-              <SocialButton
-                href="https://www.instagram.com/gmma_promotion/"
-                target="blank"
-              >
-                Instagram
-              </SocialButton>
-            </FooterItemWrapper>
-            <FooterItemWrapper>
-              <SocialButton>Youtube</SocialButton>
-            </FooterItemWrapper>
-            <FooterItemWrapper>
-              <SocialButton>Live</SocialButton>
-            </FooterItemWrapper>
+            <FooterItemListcontainer>
+              <FooterItemWrapper>
+                <SocialButton
+                  href="https://www.facebook.com/gmmageorgia"
+                  target="blank"
+                >
+                  Facebook
+                </SocialButton>
+              </FooterItemWrapper>
+              <FooterItemWrapper>
+                <SocialButton
+                  href="https://www.instagram.com/gmma_promotion/"
+                  target="blank"
+                >
+                  Instagram
+                </SocialButton>
+              </FooterItemWrapper>
+              <FooterItemWrapper>
+                <SocialButton>Youtube</SocialButton>
+              </FooterItemWrapper>
+              <FooterItemWrapper>
+                <SocialButton>Live</SocialButton>
+              </FooterItemWrapper>
+            </FooterItemListcontainer>
           </FooterItemsContainer>
           {/* <FooterItemsContainer>
             <FooterItemsHeader>HELP</FooterItemsHeader>
@@ -118,7 +120,9 @@ const FirstSection = styled(Container)`
 `;
 
 const FooterDetailsContainer = styled(Container)`
-  align-items: start;
+  align-items: end;
+  /* border: 1px solid red; */
+  padding-top: 3rem;
   gap: ${(props) => props.theme.size.lg};
   /* padding-right: ${(props) => props.theme.padding.lg}; */
 
@@ -166,18 +170,27 @@ const FooterItemsHeader = styled(ContainerHeader)`
 
   min-width: 10ch;
   font-size: ${(props) => props.theme.font.size.msm};
-  padding-left: 0;
-  padding-right: 0;
+  padding: 0;
+
   @media (max-width: 950px) {
     font-size: ${(props) => props.theme.font.size.sm};
   }
 `;
 
-const FooterItemWrapper = styled(Container)`
-  width: 70%;
+const FooterItemListcontainer = styled(Container)`
+  flex-direction: column;
+  gap: ${(props) => props.theme.size.sm};
   align-items: center;
 
+  /* border: 1px solid red; */
+  width: 100%;
+`;
+
+const FooterItemWrapper = styled(Container)`
+  width: 50%;
+  align-items: center;
   justify-content: flex-start;
+  /* border: 1px solid red; */
 `;
 const SocialButton = styled.a`
   color: ${(props) => props.theme.color.white};
