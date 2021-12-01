@@ -1,52 +1,84 @@
 import React from 'react';
 import styled from 'styled-components';
-import {
-  Container,
-  LogoContainer,
-  ColoredLogo,
-  Button,
-} from 'components/styled/';
+import { Container, ContainerHeader } from 'components/styled/';
 
 import GMMA from 'media/gmma.jpg';
 
 const Footer = () => {
   return (
     <FooterContainer>
-      <LogoAndContacts>
-        <FooterItem>
-          <LogoContainer>
-            <GmmaLogo src={GMMA} alt="logo svg" />
-          </LogoContainer>
-        </FooterItem>
+      <FirstSection>
+        <Container>
+          <GmmaLogo src={GMMA} alt="logo svg" />
+        </Container>
 
-        <SocialContainer>
-          <SocialButton
-            href="https://www.facebook.com/gmmageorgia"
-            target="blank"
-          >
-            Facebook
-          </SocialButton>
-          <SocialButton>Instagram</SocialButton>
-          <SocialButton>Youtube</SocialButton>
-        </SocialContainer>
-      </LogoAndContacts>
-      {/* <Container>
-        <Container>Proucts</Container>
-        <Container>helllo world</Container>
-        <Container>helllo world</Container>
-        <Container>helllo world</Container>
-        <Container>helllo world</Container>
-        <Container>helllo world</Container>
-      </Container>
-      <Container>
-        <Container>helllo world</Container>
-        <Container>helllo world</Container>
-        <Container>helllo world</Container>
-        <Container>helllo world</Container>
-        <Container>helllo world</Container>
-        <Container>helllo world</Container>
-      </Container> */}
-      {/* <img src={logo} alt="React Logo" width="auto" height="50" /> */}
+        <FooterDetailsContainer>
+          <FooterItemsContainer>
+            <FooterItemsHeader>GMMA</FooterItemsHeader>
+            <FooterItemWrapper>
+              <SocialButton
+                href="https://www.facebook.com/gmmageorgia"
+                target="blank"
+              >
+                Athletes
+              </SocialButton>
+            </FooterItemWrapper>
+            <FooterItemWrapper>
+              <SocialButton>Events</SocialButton>
+            </FooterItemWrapper>
+            <FooterItemWrapper>
+              <SocialButton>About</SocialButton>
+            </FooterItemWrapper>
+
+            <FooterItemWrapper>
+              <SocialButton>News</SocialButton>
+            </FooterItemWrapper>
+            <FooterItemWrapper>
+              <SocialButton>Gallery</SocialButton>
+            </FooterItemWrapper>
+          </FooterItemsContainer>
+
+          <FooterItemsContainer>
+            <FooterItemsHeader>SOCIAL</FooterItemsHeader>
+            <FooterItemWrapper>
+              <SocialButton
+                href="https://www.facebook.com/gmmageorgia"
+                target="blank"
+              >
+                Facebook
+              </SocialButton>
+            </FooterItemWrapper>
+            <FooterItemWrapper>
+              <SocialButton>Instagram</SocialButton>
+            </FooterItemWrapper>
+            <FooterItemWrapper>
+              <SocialButton>Youtube</SocialButton>
+            </FooterItemWrapper>
+          </FooterItemsContainer>
+          <FooterItemsContainer>
+            <FooterItemsHeader>HELP</FooterItemsHeader>
+            <FooterItemWrapper>
+              <SocialButton
+                href="https://www.facebook.com/gmmageorgia"
+                target="blank"
+              >
+                FAQ
+              </SocialButton>
+            </FooterItemWrapper>
+            <FooterItemWrapper>
+              <SocialButton>Contact</SocialButton>
+            </FooterItemWrapper>
+            <FooterItemWrapper>
+              <SocialButton>Live</SocialButton>
+            </FooterItemWrapper>
+
+            <FooterItemWrapper>
+              <SocialButton>Shop</SocialButton>
+            </FooterItemWrapper>
+          </FooterItemsContainer>
+        </FooterDetailsContainer>
+      </FirstSection>
+
       <AllRights>© 2021 All Rights Reserved GMMA</AllRights>
     </FooterContainer>
   );
@@ -55,8 +87,8 @@ const Footer = () => {
 export default Footer;
 
 const FooterContainer = styled(Container)`
-  color: ${(props) => props.theme.color.black};
-  /* border-top: 1px solid ${(props) => props.theme.color.grey}; */
+  color: ${(props) => props.theme.color.white};
+
   padding: ${(props) => props.theme.padding.md};
   background-color: ${(props) => props.theme.color.black};
 
@@ -76,11 +108,22 @@ const FooterContainer = styled(Container)`
   }
 `;
 
+const FirstSection = styled(Container)`
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+`;
+
+const FooterDetailsContainer = styled(Container)`
+  align-items: start;
+  gap: ${(props) => props.theme.size.lg};
+  /* padding-right: ${(props) => props.theme.padding.lg}; */
+`;
 const GmmaLogo = styled.img`
   width: auto;
   height: ${(props) => props.theme.size.xxxxlg};
   object-fit: cover;
-  padding-left: ${(props) => props.theme.padding.xxlg};
+  /* padding-left: ${(props) => props.theme.padding.xxlg}; */
 
   @media (max-width: 950px) {
     height: ${(props) => props.theme.size.xxlg};
@@ -91,17 +134,7 @@ const GmmaLogo = styled.img`
     height: ${(props) => props.theme.size.xxlg};
   }
 `;
-const LogoAndContacts = styled(Container)`
-  justify-content: space-between;
-  align-items: end;
-  width: 80%;
 
-  /* border: 1px solid red; */
-`;
-
-const FooterItem = styled(Container)`
-  width: ${(props) => props.theme.size.sm};
-`;
 const AllRights = styled(Container)`
   color: ${(props) => props.theme.color.grey};
   font-weight: ${(props) => props.theme.font.weight.bold};
@@ -114,18 +147,39 @@ const AllRights = styled(Container)`
   }
 `;
 
-const SocialContainer = styled(FooterItem)`
-  gap: ${(props) => props.theme.size.md};
-  width: ${(props) => props.theme.size.xxlg};
-  font-size: ${(props) => props.theme.font.size.msm};
+const FooterItemsContainer = styled(Container)`
+  gap: ${(props) => props.theme.size.msm};
+  flex-direction: column;
+  align-items: left;
+`;
 
+const FooterItemsHeader = styled(ContainerHeader)`
+  color: ${(props) => props.theme.color.white};
+  letter-spacing: 3px;
+
+  min-width: 10ch;
+  font-size: ${(props) => props.theme.font.size.msm};
+  padding-left: 0;
+  padding-right: 0;
   @media (max-width: 950px) {
     font-size: ${(props) => props.theme.font.size.sm};
   }
 `;
+
+const FooterItemWrapper = styled(Container)`
+  width: 70%;
+  align-items: center;
+
+  justify-content: flex-start;
+`;
 const SocialButton = styled.a`
   color: ${(props) => props.theme.color.white};
   cursor: pointer;
+
+  font-size: ${(props) => props.theme.font.size.msm};
+  @media (max-width: 950px) {
+    font-size: ${(props) => props.theme.font.size.sm};
+  }
 
   &:hover {
     outline: none;

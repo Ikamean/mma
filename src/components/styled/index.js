@@ -3,9 +3,9 @@ import styled from 'styled-components';
 export const PageBody = styled.div`
   overflow-y: auto;
   min-height: calc(100vh - 155px);
-  padding-top: ${(props) => props.theme.padding.xlg};
+  padding-top: ${(props) => props.theme.padding.llg};
   padding-bottom: 0;
-  background-color: ${(props) => props.theme.color.darkBlack};
+  background-color: ${(props) => props.theme.color.white};
   margin: 0px !important;
   color: ${(props) => props.theme.color.white};
 `;
@@ -42,7 +42,7 @@ export const Button = styled.button`
   background-color: transparent;
   cursor: pointer;
   &:hover {
-    outline: 1px dotted ${(props) => props.theme.color.red};
+    border-bottom: 1px solid red;
   }
 `;
 
@@ -68,7 +68,7 @@ export const ColoredLogo = styled(LogoContainer)`
 `;
 
 export const Divider = styled(Container)`
-  background-color: ${(props) => props.theme.color.black};
+  background-color: ${(props) => props.theme.color.white};
   height: ${(props) => props.theme.size.xxlg};
   width: 100%;
 `;

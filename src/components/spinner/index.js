@@ -30,11 +30,11 @@ function Spinner() {
 export default Spinner;
 
 const Centered = styled.div`
-  /* position: absolute;
+  position: absolute;
   left: 0;
   right: 0;
   top: 0;
-  bottom: 0; */
+  bottom: 0;
 
   z-index: 99999;
   background-color: ${(props) => props.theme.color.darkBlack};
@@ -46,4 +46,6 @@ const Loader = styled.div`
   transform: translateY(-50%);
   left: 0;
   right: 0;
+
+  /* background-color: ${(props) => props.theme.color.darkBlack}; */
 `;
